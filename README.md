@@ -2,6 +2,12 @@
 
 Live charts and statistics for Elasticsearch cluster.
 
+## Support elasticsearch 2.x
+   I test with elasticsearch 2.3.x. Found there  are many metrics appear due to ES api changes
+   I have add the filter/field cache metrics to the view  and test OK with es2.3.2
+   
+   there are many other metrics missing, e.g. disk io stats， I will append in the future， or anyone is kind to append them.
+   
 ## Contents
 
 - [Support Matrix](#support-matrix)
