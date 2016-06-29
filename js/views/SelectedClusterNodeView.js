@@ -593,20 +593,17 @@ var SelectedClusterNodeView = Backbone.View.extend({
                     _.defer(function(){
                         var indices_cache_field_size = bigdesk_charts.indicesCacheSize.series1(stats);
                         var indices_cache_filter_size = bigdesk_charts.indicesCacheSize.series2(stats);
-                        var indices_id_cache_size = bigdesk_charts.indicesCacheSize.series3(stats);
 
                         try { chart_indicesCacheSize.animate(animatedCharts)
-							.update(indices_cache_field_size, indices_cache_filter_size, indices_id_cache_size);
+							.update(indices_cache_field_size, indices_cache_filter_size);
 						} catch (ignore) {}
 
-                        if (stats_the_latest.node && stats_the_latest.node.indices && stats_the_latest.node.indices.filter_cache) {
-                            $("#indices_filter_cache_size").text(stats_the_latest.node.indices.filter_cache.memory_size);
+                        if (stats_the_latest.node && stats_the_latest.node.indices && stats_the_latest.node.indices.query_cache) {
+                            $("#indices_filter_cache_size").text(stats_the_latest.node.indices.query_cache.memory_size);
                             $("#indices_field_cache_size").text(stats_the_latest.node.indices.fielddata.memory_size);
-                            $("#indices_id_cache_size").text(stats_the_latest.node.indices.id_cache.memory_size);
                         } else {
                             $("#indices_filter_cache_size").text("n/a");
                             $("#indices_field_cache_size").text("n/a");
-                            $("#indices_id_cache_size").text("n/a");
                         }
                     });
 
@@ -624,7 +621,7 @@ var SelectedClusterNodeView = Backbone.View.extend({
 
                             try { chart_indicesCacheEvictions.animate(animatedCharts).update(indices_cache_field_evictions, indices_cache_filter_evictions); } catch (ignore) {}
 
-                            $("#indices_filter_cache_evictions").text(stats_the_latest.node.indices.filter_cache.evictions);
+                            $("#indices_filter_cache_evictions").text(stats_the_latest.node.indices.query_cache.evictions);
                             $("#indices_field_cache_evictions").text(stats_the_latest.node.indices.fielddata.evictions);
 
                         }

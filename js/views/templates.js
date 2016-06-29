@@ -259,7 +259,6 @@ var templates = {
         ].join("<br>"),
 
         indicesCacheSizeTemplate: [
-            "ID: <span id='indices_id_cache_size'>n/a</span>",
             "Filter: <span id='indices_filter_cache_size'>n/a</span>",
             "Field: <span id='indices_field_cache_size'>n/a</span>"
         ].join("<br>"),
